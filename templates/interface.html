@@ -22,7 +22,7 @@
         }
     </style>
     <meta charset="utf-8">
-    <title>Le concert de Booba au Maroc annulé par les autorités locales après... | Brut.</title>
+    <title> {{ title }}| Brut.</title>
     <script async="true" src="https://tr.snapchat.com/config/media/dbc26261-e479-4241-b990-c52506f5675c.js"
         crossorigin="anonymous"></script>
     <script async="" src="https://sc-static.net/scevent.min.js"></script>
@@ -263,13 +263,13 @@
         href="https://www.brut.media/fr/entertainment/le-concert-de-booba-au-maroc-annule-par-les-autorites-locales-apres-des-appels-au-boycott--eb83e748-344e-4cf6-8812-dd6bafc3410a"
         data-react-helmet="true">
     <meta name="description"
-        content="Le concert de Booba au Maroc annulé par les autorités locales après des appels au boycott, on vous raconte."
+        content={{ description }}
         data-react-helmet="true">
     <meta property="og:title"
         content="{{ title }} | Brut."
         data-react-helmet="true">
     <meta property="og:description"
-        content="Le concert de Booba au Maroc annulé par les autorités locales après des appels au boycott, on vous raconte."
+        content={{ description }}
         data-react-helmet="true">
     <meta property="og:url"
         content="https://www.brut.media/fr/entertainment/le-concert-de-booba-au-maroc-annule-par-les-autorites-locales-apres-des-appels-au-boycott--eb83e748-344e-4cf6-8812-dd6bafc3410a"
@@ -284,7 +284,7 @@
         content="{{ title }} | Brut."
         data-react-helmet="true">
     <meta name="twitter:description"
-        content="Le concert de Booba au Maroc annulé par les autorités locales après des appels au boycott, on vous raconte."
+        content=<{{ title }}>
         data-react-helmet="true">
     <meta name="twitter:image"
         content="https://img.brut.media/w600/thumbnail/le-concert-de-booba-au-maroc-annule-par-les-autorites-locales-apres-des-appels-au-boycott-eb83e748-344e-4cf6-8812-dd6bafc3410a-603226e8-37ba-4a11-8f8b-1f352d4b0bd6-portrait-auto.jpg"
@@ -1192,11 +1192,8 @@
                             <div class="media-content media-page-media-content col-md-12 col-lg-5">
                                 <div>
                                     <div class="text-section">
-                                        <h1 class="title-1">Le concert de Booba au Maroc annulé par les autorités
-                                            locales après des appels au boycott.</h1>
-                                        <p class="text-sub-1 text-section-description">Le concert de Booba au Maroc
-                                            annulé par les autorités locales après des appels au boycott, on vous
-                                            raconte.</p>
+                                        <h1 class="title-1">{{ description }}</h1>
+                                        <p class="text-sub-1 text-section-description"> {{ description }}</p>
                                     </div>
                                     <div class="wrapper-bottom-media-content">
                                         <div class="bookmark-button" data-testid="button-bookmark">
@@ -1265,8 +1262,7 @@
                                             </div>
                                         </div>
                                         <div class="text-section media-card-text-section">
-                                            <h3 class="media-card-title">Le concert de Booba au Maroc annulé par les
-                                                autorités locales après des appels au boycott.</h3>
+                                            <h3 class="media-card-title">{{ title }}</h3>
                                         </div>
                                     </a></div>
                                 <div class="wrapper col-6 col-md-3 col-xl-2"><a class="media-card"
@@ -1315,7 +1311,7 @@
                                             </div>
                                         </div>
                                         <div class="text-section media-card-text-section">
-                                            <h3 class="media-card-title">Le concert de Booba au Maroc annulé</h3>
+                                            <h3 class="media-card-title">{{ title }}</h3>
                                         </div>
                                     </a></div>
                                 <div class="wrapper col-6 col-md-3 col-xl-2"><a class="media-card"
