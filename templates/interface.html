@@ -525,7 +525,7 @@
                                 <div class="wrapper-menu-burger">
                                     <div class="menu-burger"></div>
                                 </div>
-                                <div class="logo-brut"><img class="header-brand" src="https://shorturl.at/noBX9"><i class="logo"></i></img></div>
+                                <div class="logo-brut"><img class="header-brand" src="{{url_for('static', path = 'images/open.data_720.png')}}"><i class="logo"></i></img></div>
                             </div>
                             <div class="header-middle-right"><img class="search-icon-mobile"
                                     src="{{ url_for('static', path='images/search-icon.png')}} " alt="search icon" width="18px" height="18px"><img
@@ -639,43 +639,6 @@
                                         <p class="text-sub-1 text-section-description"> {{ description|safe }}</p>
                                     </div>
                                     <div class="wrapper-bottom-media-content">
-                                        <div class="bookmark-button" data-testid="button-bookmark">
-                                            <p>Ma liste</p>
-                                            <div class="list-icon"><svg viewBox="0 0 24 24"
-                                                    aria-labelledby="icon_labelledby_499">
-                                                    <title id="icon_labelledby_499">list-icon</title>
-                                                    <path
-                                                        d="M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M13,7H11V11H7V13H11V17H13V13H17V11H13V7Z"
-                                                        style="fill: currentcolor;"></path>
-                                                </svg><span class="tooltip_text">Ajouter à ma liste</span></div>
-                                        </div>
-                                        <div class="share_media">
-                                            <p>Partager sur</p>
-                                            <ul>
-                                                <li class="tooltip_social">
-                                                    <div role="button" tabindex="0"
-                                                        class="SocialMediaShareButton SocialMediaShareButton--whatsapp">
-                                                        <i class="whatsapp"></i>
-                                                    </div><span class="tooltip_text">Partager sur WhatsApp</span>
-                                                </li>
-                                                <li class="tooltip_social">
-                                                    <div role="button" tabindex="0"
-                                                        class="SocialMediaShareButton SocialMediaShareButton--facebook">
-                                                        <i class="facebook"></i>
-                                                    </div><span class="tooltip_text">Partager sur Facebook</span>
-                                                </li>
-                                                <li class="tooltip_social">
-                                                    <div role="button" tabindex="0"
-                                                        class="SocialMediaShareButton SocialMediaShareButton--twitter">
-                                                        <i class="twitter"></i>
-                                                    </div><span class="tooltip_text">Partager
-                                                        sur Twitter</span>
-                                                </li>
-                                                <li role="button" data-testid="button-copy-tooltip"
-                                                    class="tooltip_social"><i class="more"></i><span
-                                                        class="tooltip_text">Copier l’URL</span></li>
-                                            </ul>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="sub-content">
