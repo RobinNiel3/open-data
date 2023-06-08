@@ -32,5 +32,6 @@ data_list = [
 
 # Ajout des données à la collection
 for data in data_list:
-    doc_ref = sources_ref.add(data)[1]
-    print(f"L'élément a été ajouté avec l'ID : {doc_ref.id}")
+    doc_ref = sources_ref.document(data["id"])
+    doc_ref.set(data)
+
