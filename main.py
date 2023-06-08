@@ -10,5 +10,6 @@ general_pages_router = APIRouter()
 @general_pages_router.get("/test")
 async def home(request: Request):
     return templates.TemplateResponse("interface.html", {"request": request,
-                                                         "title": "France le plus beau",
-                                                         "description": "Test2"})
+                                                         "title": "Video title",
+                                                         "page_title": "Page Title",
+                                                         "description": "Video description"})
