@@ -35,7 +35,7 @@ steps:
   id : 'ssh-setup'
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '--ssh', 'default=/root/.ssh/id_ed25519', '-t', '$LOCATION-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_IMAGE}', '${_IMAGE}/' ]
+  args: ['build', '--ssh', 'default=/root/.ssh/id_ed25519', '-t', '$LOCATION-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_IMAGE}', '.' ]
   env:
     - 'DOCKER_BUILDKIT=1'
   waitFor: ['ssh-setup']
