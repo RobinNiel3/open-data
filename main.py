@@ -30,4 +30,5 @@ async def home(item_id: str, request: Request):
         return templates.TemplateResponse("interface.html", {"request": request,
                                                          "video_title": item["title"],
                                                          "page_title": item["title"],
-                                                         "description": get_sources_hypertext(item["sources"])})
+                                                         "description": get_sources_hypertext(item["sources"]), 
+                                                         "thumbnail": item["thumbnail"]})
