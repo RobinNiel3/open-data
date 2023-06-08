@@ -11,4 +11,4 @@ general_pages_router = APIRouter()
 
 @general_pages_router.get("/test")
 async def home(request: Request):
-	return templates.TemplateResponse("interface.html", {"request":request})
+	return templates.TemplateResponse("interface.html", {"request" : request, "title": "Test"})
