@@ -1,11 +1,11 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, FastAPI, HTTPException
 from fastapi import Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from google.cloud import firestore
 from firestore.get_item import get_item
+from fastapi.staticfiles import StaticFiles
 
-general_pages_router = APIRouter()
 
 db = firestore.Client(project="brt-svc-data-platform-dev")
 
@@ -16,7 +16,11 @@ def get_sources_hypertext(sources):
     final_str += "</ul>"
     return final_str
 
-@general_pages_router.get("/source/{item_id}")
+app = FastAPI()
+
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+@app.get("/source/{item_id}")
 async def home(item_id: str, request: Request):
     templates = Jinja2Templates(directory="templates")
     item = get_item(db, "sources", item_id)

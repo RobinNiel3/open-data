@@ -18,4 +18,4 @@ RUN --mount=type=ssh pip3 install -r requirements.txt && pip3 install --no-cache
 
 EXPOSE 8080
 
-CMD exec gunicorn -b :$PORT --workers 6 --timeout 0 -k uvicorn.workers.UvicornWorker --reload main:general_pages_router
+CMD exec gunicorn -b :$PORT --workers 6 --timeout 0 -k uvicorn.workers.UvicornWorker --reload main:app
