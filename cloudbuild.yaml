@@ -1,0 +1,65 @@
+# Copyright 2020 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# [START cloudbuild_quickstart_build]
+availableSecrets:
+  secretManager:
+  - env: 'SSH_KEY'
+    versionName: projects/$PROJECT_ID/secrets/$_SSH_SECRET_NAME/versions/latest
+
+steps:
+# SSH key load
+- name: 'gcr.io/cloud-builders/docker'
+  secretEnv:
+    - 'SSH_KEY'
+  entrypoint: 'bash'
+  args:
+  - -c
+  - |
+    echo "$$SSH_KEY" >> /root/.ssh/id_ed25519
+    chmod 400 /root/.ssh/id_ed25519
+  volumes:
+  - name: 'ssh'
+    path: /root/.ssh
+  id : 'ssh-setup'
+# Build the container image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--ssh', 'default=/root/.ssh/id_ed25519', '-t', '$LOCATION-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_IMAGE}', '${_IMAGE}/' ]
+  env:
+    - 'DOCKER_BUILDKIT=1'
+  waitFor: ['ssh-setup']
+  id : 'build'
+  volumes:
+  - name: 'ssh'
+    path: /root/.ssh
+# Push the container image to Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', '$LOCATION-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_IMAGE}']
+  id : 'push'
+# Deploy container image to Cloud Run
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint : 'bash'
+  args:
+    - '-c'
+    - |
+      echo "Deploying new revision for open data"
+      gcloud run deploy \
+      --image $LOCATION-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_IMAGE} \
+      --region $LOCATION \
+      $PROJECT_ID-gcr-open-data
+  id: 'deploy'
+  waitFor: ['push']
+images:
+- '$LOCATION-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_IMAGE}'
+#[END cloudbuild_quickstart_build]
