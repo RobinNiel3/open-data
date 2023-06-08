@@ -284,7 +284,7 @@
         content="{{ page_title }} | Brut."
         data-react-helmet="true">
     <meta name="twitter:description"
-        content=<{{ description }}>
+        content=<{{ description|safe }}>
         data-react-helmet="true">
     <meta name="twitter:image"
         content="https://img.brut.media/w600/thumbnail/le-concert-de-booba-au-maroc-annule-par-les-autorites-locales-apres-des-appels-au-boycott-eb83e748-344e-4cf6-8812-dd6bafc3410a-603226e8-37ba-4a11-8f8b-1f352d4b0bd6-portrait-auto.jpg"
@@ -1193,7 +1193,7 @@
                                 <div>
                                     <div class="text-section">
                                         <h1 class="title-1">{{ video_title }}</h1>
-                                        <p class="text-sub-1 text-section-description"> {{ description }}</p>
+                                        <p class="text-sub-1 text-section-description"> {{ description|safe }}</p>
                                     </div>
                                     <div class="wrapper-bottom-media-content">
                                         <div class="bookmark-button" data-testid="button-bookmark">
